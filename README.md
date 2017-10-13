@@ -1,5 +1,5 @@
-1) Установка typescript, webpack, awesome-typescript-loader
+#Start with TypeScript, React and Redux.
 
-2) Использование awesome-typescript-loader в webpack
+##Steps:
 
-3) 
+1) clean TypeScript project: `git checkout step-1`
