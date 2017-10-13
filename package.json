@@ -2,7 +2,7 @@
   "name": "rr-ts-starter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "start": "better-npm-run dev",
     "build": "better-npm-run build"
