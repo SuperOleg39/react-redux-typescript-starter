@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const paths = {
     src: path.resolve(__dirname, 'src'),
@@ -32,11 +31,7 @@ const config = {
                 loader: 'awesome-typescript-loader'
             }
         ]
-    },
-    
-    plugins: [
-        new HtmlWebpackPlugin()
-    ]
+    }
 };
 
 module.exports = config;

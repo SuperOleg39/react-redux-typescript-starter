@@ -1,9 +1,23 @@
-interface Props {
-    world: string;
-}
-  
-function hello(props: Props) {
-    console.log(`Hello, ${props.world}`);
+type message = string;
+
+abstract class Logger {
+    abstract log(message: message): void;
 }
 
-hello({ world: 'TypeScript!' });
+class ErrorLogger extends Logger {
+    public log(message: message) {
+        console.error(message);
+    }
+}
+
+interface Params {
+    hello: string;
+    world: string;
+}
+
+function helloWorld(params: Params) {
+    const logger = new ErrorLogger();
+    console.log(`${params.hello}, ${params.world}!`);
+}
+
+helloWorld({ hello: 'Hello', world: 'Typescript' });
