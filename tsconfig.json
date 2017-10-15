@@ -1,16 +1,7 @@
 {
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "es5",
-      "es6",
-      "es2015.promise"
-    ],
-    "target": "es5",
+    "target": "esnext",
     "module": "esnext",
     "jsx": "react"
-  },
-  "awesomeTypescriptLoaderOptions": {
-    
   }
 }
