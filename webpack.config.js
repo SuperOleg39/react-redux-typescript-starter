@@ -2,10 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-const env = process.env.NODE_ENV;
-const __DEV__ = env === 'development';
-const __PRODUCTION__ = env === 'production';
-
 const paths = {
     src: path.resolve(__dirname, 'src'),
     dist: path.resolve(__dirname, 'dist')
@@ -24,13 +20,15 @@ const config = {
     },
     
     resolve: {
-        extensions: ['.ts', '.tsx']
+        extensions: ['.ts']
     },
+
+    devtool: 'inline-source-map',
     
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.ts$/,
                 loader: 'awesome-typescript-loader'
             }
         ]
@@ -40,13 +38,5 @@ const config = {
         new HtmlWebpackPlugin()
     ]
 };
-
-if (__DEV__) {
-    config.devtool = 'inline-source-map';
-}
-
-if (__PRODUCTION__) {
-    config.plugins.push(new webpack.optimize.UglifyJsPlugin());
-}
 
 module.exports = config;
