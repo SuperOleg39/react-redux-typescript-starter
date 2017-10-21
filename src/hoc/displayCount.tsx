@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { InjectedProps } from './withCount';
 
-interface Props {
+interface OriginProps {
     title: string;
 }
 
-const DisplayCount = (props: Props & InjectedProps) => (
+const DisplayCount = (props: OriginProps & InjectedProps) => (
     <div>
         <h4>{props.title}</h4>
-        <div>{props.count}</div>
+        <div>Count: {props.count}</div>
     </div>
 );
 

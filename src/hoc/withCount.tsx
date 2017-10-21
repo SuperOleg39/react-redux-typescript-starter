@@ -1,9 +1,4 @@
 import * as React from 'react';
-import DisplayCount from './displayCount';
-
-interface State {
-    count: number;
-}
 
 export interface InjectedProps {
     count: number;
@@ -11,6 +6,10 @@ export interface InjectedProps {
 
 interface ExternalProps {
     increment: number;
+}
+
+interface State {
+    count: number;
 }
 
 function withCount<OriginProps>(Component: React.ComponentType<OriginProps & InjectedProps>) {
