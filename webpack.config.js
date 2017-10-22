@@ -17,7 +17,8 @@ const config = {
     
     output: {
         path: paths.dist,
-        filename: '[name].bundle.js'
+        filename: '[name].bundle.js',
+        chunkFilename: '[name].bundle.js'
     },
     
     resolve: {

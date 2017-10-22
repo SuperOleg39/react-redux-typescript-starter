@@ -3,8 +3,10 @@ import * as ReactDOM from 'react-dom';
 import Simple from './simple/simple';
 import withCount from './hoc/withCount';
 import DisplayCount from './hoc/DisplayCount';
+import LazyLoad from './lazy/LazyLoad';
 
 const Counter = withCount(DisplayCount);
+const load = () => import(/* webpackChunkName: 'lazy-component' */'./lazy/lazyComponent');
 
 interface IAppProps {
     title: string;
@@ -23,6 +25,8 @@ const App = ({title}: IAppProps) => <div>
         title="High Order Component"
         increment={5}
     />
+
+    <LazyLoad load={load} />
 </div>;
 
 ReactDOM.render(
