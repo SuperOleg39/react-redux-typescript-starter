@@ -6,4 +6,6 @@
 
 2) add React to project: `git checkout step-2`
 
-2) React and TS recipes: `git checkout step-3`
+3) React and TS recipes: `git checkout step-3`
+
+4) add Redux to project: `git checkout step-4`
