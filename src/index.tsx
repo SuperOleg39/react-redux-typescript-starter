@@ -4,12 +4,7 @@ import { Provider } from 'react-redux';
 import configureStore from './store';
 import Field from './components/Field';
 
-const store = configureStore({
-    field: {
-        value: '',
-        focus: false
-    }
-});
+const store = configureStore();
 
 const App = () => (
     <Provider store={store}>

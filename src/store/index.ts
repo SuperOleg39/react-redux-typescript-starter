@@ -6,7 +6,7 @@ export interface IStore {
     field: FieldState
 }
 
-const configureStore = (initialState: IStore) => {
+const configureStore = (initialState?: IStore) => {
     return createStore(
         rootReducer,
         initialState,

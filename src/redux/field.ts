@@ -1,4 +1,6 @@
-/** State */
+/**
+ * State
+ */
 export interface FieldState {
     value: string;
     focus: boolean;
@@ -9,7 +11,9 @@ const initialState: FieldState = {
     focus: false
 }
 
-/** Constants */
+/**
+ * Constants
+ */
 const SET = 'field/SET';
 type SET = typeof SET;
 
@@ -19,7 +23,9 @@ type FOCUS = typeof FOCUS;
 const BLUR = 'field/BLUR';
 type BLUR = typeof BLUR;
 
-/** Actions */
+/** 
+ * Actions
+ */
 export interface SetAction {
     type: SET;
     payload: string;
@@ -35,7 +41,9 @@ export interface BlurAction {
 
 type FieldAction = SetAction | FocusAction | BlurAction;
 
-/** Reducer */
+/** 
+ * Reducer
+ */
 export default function reducer(state: FieldState = initialState, action: FieldAction): FieldState {
     switch (action.type) {
         case SET:
@@ -58,7 +66,9 @@ export default function reducer(state: FieldState = initialState, action: FieldA
     }
 }
 
-/** Action Creators */
+/** 
+ * Action Creators
+ */
 export const set = (payload: string): SetAction => ({
     type: SET,
     payload
