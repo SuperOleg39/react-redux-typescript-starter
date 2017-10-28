@@ -27,7 +27,7 @@ class Users extends React.Component<UsersProps, {}> {
             return '...';
         }
 
-        return users.map((user) => <div>{user.name}</div>);
+        return users.map((user) => <div key={user.id}>{user.name}</div>);
     }
 }
 

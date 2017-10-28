@@ -2,6 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const env = process.env.NODE_ENV;
+const __DEV__ = env === 'development';
+const __PRODUCTION__ = env === 'production';
 
 const paths = {
     src: path.resolve(__dirname, 'src'),
@@ -17,15 +22,13 @@ const config = {
     
     output: {
         path: paths.dist,
-        filename: '[name].bundle.js',
-        chunkFilename: '[name].bundle.js'
+        filename: __PRODUCTION__ ? '[name].bundle.[chunkhash].js' : '[name].bundle.js',
+        chunkFilename: __PRODUCTION__ ? '[name].bundle.[chunkhash].js' : '[name].bundle.js'
     },
     
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.jsx']
     },
-
-    devtool: 'inline-source-map',
     
     module: {
         rules: [
@@ -37,11 +40,26 @@ const config = {
     },
     
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        // new BundleAnalyzerPlugin({
+        //     analyzerMode: 'static'
+        // }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(env)
+        }),
         new HtmlWebpackPlugin({
             template: './index.html'
-        })
+        }),
+        new webpack.optimize.ModuleConcatenationPlugin()
     ]
 };
+
+if (__DEV__) {
+    config.devtool = 'inline-source-map';
+}
+
+if (__PRODUCTION__) {
+    config.plugins.push(new CleanWebpackPlugin(['dist']));
+    config.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
 
 module.exports = config;

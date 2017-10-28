@@ -12,4 +12,6 @@
 
 5) Redux and TS recipes: `git checkout step-5`
 
-6) Connect Redux and API: `git checkout step-6`
+6) connect Redux and API: `git checkout step-6`
+
+7) production and development build: `git checkout step-7`
