@@ -10,4 +10,6 @@
 
 4) add Redux to project: `git checkout step-4`
 
-4) Redux and TS recipes: `git checkout step-5`
+5) Redux and TS recipes: `git checkout step-5`
+
+6) Connect Redux and API: `git checkout step-6`

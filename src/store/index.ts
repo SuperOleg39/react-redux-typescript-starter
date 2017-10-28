@@ -1,15 +1,19 @@
 import { createStore, compose, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk'
 import rootReducer from '../redux';
 import { FieldState } from '../redux/field';
+import { UsersState } from '../redux/users';
 import logger from '../middlewares/logger';
 
 export interface IStore {
-    field: FieldState
+    field: FieldState,
+    users: UsersState
 }
 
 let composeEnhancers = compose;
 const middlewares = [
-    logger
+    logger,
+    ReduxThunk
 ];
 
 if (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {

@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import fieldReducer from './field';
+import usersReducer from './users';
 
 export default combineReducers({
-    field: fieldReducer
+    field: fieldReducer,
+    users: usersReducer
 });
