@@ -27,7 +27,8 @@ const config = {
     },
     
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.jsx']
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        modules: ['node_modules', path.resolve(__dirname, 'src')]
     },
     
     module: {
@@ -35,6 +36,29 @@ const config = {
             {
                 test: /\.tsx?$/,
                 loader: 'awesome-typescript-loader'
+            },
+            {
+                test: /\.less$/,
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader", options: {
+                        modules: true,
+                        importLoaders: 1
+                    }
+                }, {
+                    loader: "less-loader", options: {
+                        relativeUrls: false
+                    }
+                }]
+            },
+            {
+                test: /\.(png|jpg|gif)$/,
+                use: [{
+                    loader: 'url-loader', options: {
+                        limit: 10000
+                    }
+                }]
             }
         ]
     },

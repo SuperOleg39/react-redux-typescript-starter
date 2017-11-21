@@ -13,6 +13,8 @@ import configureStore from './store';
 import Field from './components/Field';
 import Users from './components/Users';
 
+require('assets/less/index.less');
+
 const store = configureStore();
 
 const App = () => (
