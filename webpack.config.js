@@ -42,14 +42,9 @@ const config = {
                 use: [{
                     loader: "style-loader"
                 }, {
-                    loader: "css-loader", options: {
-                        modules: true,
-                        importLoaders: 1
-                    }
+                    loader: "css-loader"
                 }, {
-                    loader: "less-loader", options: {
-                        relativeUrls: false
-                    }
+                    loader: "less-loader"
                 }]
             },
             {
