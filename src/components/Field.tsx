@@ -3,6 +3,8 @@ import { connect, Dispatch, DispatchProp } from 'react-redux';
 import { IStore } from '../store';
 import { set, focus, blur } from '../redux/field';
 
+const style = require('./field.less');
+
 interface FieldProps extends DispatchProp<IStore>, React.HTMLProps<HTMLInputElement> {
     value?: string;
 }
@@ -34,6 +36,7 @@ class Field extends React.Component<FieldProps, {}> {
         return (
             <input
                 {...inputProps}
+                className="Field"
                 type="text"
                 value={value}
                 onChange={this.handleChange}
